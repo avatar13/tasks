@@ -21,7 +21,7 @@ class BracerChecker
 			'{' => '}',
 			'<' => '>',
 		];
-		$lastActive = [];
+		$braceStack = [];
 
 		$len = strlen($str);
 		for ($i = 0; $i < $len; $i++) {
@@ -29,19 +29,19 @@ class BracerChecker
 
 			// note: isset faster than array_key_exists
 			if (isset($pairs[$char])) {
-				$lastActive [] = $char;
+				$braceStack[] = $char;
 			}
 
 			$key = array_search($char, $pairs);
 			if ($key !== false) {
-				if (end($lastActive) != $key) {
+				if (end($braceStack) != $key) {
 					return 1;
 				} else {
-					array_pop($lastActive);
+					array_pop($braceStack);
 				}
 			}
 		}
 
-		return 0;
+		return !empty($braceStack) ? 1 : 0;
 	}
 }

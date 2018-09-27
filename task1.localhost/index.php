@@ -20,7 +20,12 @@ $statementList = [
 	"<(   >)" => $checker->checkBraces("<(   >)") == 1,
 	"(  [  <>  ()  ]  <>  )" => $checker->checkBraces("(  [  <>  ()  ]  <>  )") == 0,
 	"   (      [)" => $checker->checkBraces("   (      [)") == 1,
-	
+
+	// additional tests
+	"([)" => $checker->checkBraces("([)") == 1,
+	"([)]" => $checker->checkBraces("([)]") == 1,
+	"(" => $checker->checkBraces("(") == 1,
+
 ];
 
 foreach ($statementList as $statement => $statementValue) {
