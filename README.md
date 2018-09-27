@@ -1,6 +1,6 @@
 # Задачи
 
-1. /task1.localhost/BracerChecker.php - исходник
+1. /task1.localhost/BracerChecker.php - исходник.
 Тесты:
 /task1.localhost/index.php
 
